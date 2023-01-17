@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @tasks = Task.all
   end
 
   def create
@@ -18,10 +19,12 @@ class TasksController < ApplicationController
   end
 
   def show
+    @tasks = Task.all
     @task = Task.find(params[:id])
   end
 
   def edit
+    @tasks = Task.all
     @task = Task.find(params[:id])
   end
 
