@@ -11,9 +11,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params.require(:task).permit(:title, :start_date, :end_date, :all_day, :description))
     if @task.save
-      flash[:notice] = "スケジュールを新規登録しました"
-      redirect_to tasks_index_path
+      redirect_to tasks_index_path, success: "スケジュールを新規登録しました"
     else
+      flash.now[:danger] = "作成に失敗しました"
       render :new
     end
   end
@@ -31,15 +31,17 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(params.require(:task).permit(:title, :strat_date, :end_date, :all_day, :description))
-      flash[:notice] = "スケジュールを更新しました"
-      redirect_to tasks_index_path
+      redirect_to tasks_index_path, success: "スケジュールを更新しました"
+    else
+      flash.now[:danger] = "編集に失敗しました"
+      render :edit
     end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice] = "スケジュールを削除しました"
+    flash.now[:notice] = "スケジュールを削除しました"
     redirect_to tasks_index_path
   end
 

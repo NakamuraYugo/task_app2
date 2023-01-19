@@ -12,11 +12,11 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_10_02_111849) do
   create_table "tasks", force: :cascade do |t|
-    t.string "title"
-    t.date "start_date"
-    t.date "end_date"
+    t.string "title", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
     t.boolean "all_day"
-    t.string "description"
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

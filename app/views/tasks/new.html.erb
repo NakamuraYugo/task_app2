@@ -2,6 +2,7 @@
 
 
 <%= form_with model: @task do |f| %>
+  <%= render 'shared/error_messages', obj: f.object %>
   <table>
     <tr>
       <th><%= f.label :title ,"タイトル" %></th>

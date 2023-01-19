@@ -10,12 +10,22 @@
     <td><%= @task.start_date %></td>
   </tr>
   <tr>
+    <th>終了日</th>
+    <td><%= @task.end_date %></td>
+  </tr>
+  <tr>
     <th>投稿日時</th>
     <td><%= @task.created_at %></td>
   </tr>
   <tr>
     <th>終日</th>
-    <td><%= @task.all_day %></td>
+    <td>
+      <% if @task.all_day == true %>
+        ◯
+      <% else @task.all_day == false %>
+
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>スケジュールメモ</th>
