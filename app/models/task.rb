@@ -13,5 +13,6 @@ class Task < ApplicationRecord
     self.start_date < self.end_date 
   end
   
-
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
